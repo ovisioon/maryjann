@@ -1,4 +1,3 @@
-// ========== FUNDO DE RABISCOS ANIMADOS ==========
 const bgRabiscos = document.getElementById('bgRabiscos');
 const rabiscosIcones = ['✨', '✏️', '🎨', '🖌️', '💖', '⭐', '🌸', '✧'];
 
@@ -7,7 +6,7 @@ function criarRabisco() {
   rabisco.className = 'rabisco';
   rabisco.textContent = rabiscosIcones[Math.floor(Math.random() * rabiscosIcones.length)];
   rabisco.style.left = Math.random() * 100 + '%';
-  rabisco.style.animationDuration = Math.random() * 10 + 8 + 's'; // 8-18s
+  rabisco.style.animationDuration = Math.random() * 10 + 8 + 's';
   rabisco.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
   bgRabiscos.appendChild(rabisco);
 
@@ -16,9 +15,8 @@ function criarRabisco() {
   });
 }
 
-// Cria rabiscos periodicamente
 setInterval(criarRabisco, 1200);
-for (let i = 0; i < 8; i++) criarRabisco(); // iniciais
+for (let i = 0; i < 8; i++) criarRabisco();
 
 // ========== DADOS DA GALERIA (exemplo) ==========
 const obras = [
@@ -28,7 +26,6 @@ const obras = [
   { src: 'img/obras/obraex2.jpeg', titulo: 'Espirito e Legião', descricao: 'Dead by Daylight', categoria: 'personagens' },
   { src: 'img/obras/obraex3.jpeg', titulo: 'Caine e seus "Amigos"', descricao: 'Digital Circus', categoria: 'gore' },
   { src: 'img/obras/obraex4.jpeg', titulo: 'Jinx', descricao: 'Arcane', categoria: 'personagens' },
-  // Adicione mais conforme as artes dela
 ];
 
 const galeriaGrid = document.getElementById('galeriaGrid');
@@ -53,10 +50,8 @@ function exibirObras(categoria) {
   });
 }
 
-// Inicializa com todas
 exibirObras('todos');
 
-// Eventos das abas
 tabsContainer.addEventListener('click', (e) => {
   if (e.target.classList.contains('tab-btn')) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -65,7 +60,6 @@ tabsContainer.addEventListener('click', (e) => {
     categoriaAtiva = cat;
     exibirObras(cat);
 
-    // Aplica classe temática ao body
     document.body.classList.remove('tema-gore', 'tema-realista', 'tema-nsfw', 'tema-personagens');
     if (cat !== 'todos') {
       document.body.classList.add('tema-' + cat);
@@ -139,7 +133,6 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('revelado');
-      // Ativa sublinhado desenhado nos títulos
       const under = entry.target.querySelector('.draw-underline');
       if (under) under.classList.add('revelado');
     }
@@ -148,7 +141,6 @@ const observer = new IntersectionObserver((entries) => {
 
 elementosRevel.forEach(el => observer.observe(el));
 
-// Ativa imediatamente elementos já visíveis
 window.addEventListener('load', () => {
   elementosRevel.forEach(el => {
     if (el.getBoundingClientRect().top < window.innerHeight) {
