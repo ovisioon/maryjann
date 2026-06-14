@@ -1,142 +1,710 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Mary Jann — Portfólio Artístico</title>
-  <!-- Fontes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* ========== VARIÁVEIS ========== */
+:root {
+  --rosa-principal: #e5989b;
+  --rosa-claro: #fadbd8;
+  --azul-petroleo: #6d8a96;
+  --creme: #fdf6ec;
+  --marrom-suave: #ab8e7c;
+  --texto: #3e3e3e;
+  --branco: #ffffff;
+  --fundo: #fffaf7;
+  /* Cores temáticas das abas */
+  --cor-gore: #8b0000;
+  --cor-realista: #5d4e37;
+  --cor-nsfw: #a64d79;
+  --cor-personagens: #3a6b5c;
+  --sombra-suave: 0 6px 18px rgba(0,0,0,0.08);
+  --transicao: 0.3s ease;
+}
 
-  <!-- Fundo animado com rabiscos flutuantes -->
-  <div class="bg-rabiscos" id="bgRabiscos"></div>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-content">
-      <div class="logo">
-        <img src="img/avatar-mary.png" alt="Mary Jann" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <span>Mary Jann</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#galeria">Galeria</a></li>
-          <li><a href="#comissoes">Comissões</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  font-size: 16px; /* base para rem */
+}
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1 class="draw-title">Mary Jann</h1>
-    <p class="subtitle">Traços realistas com alma de personagens — um universo entre jogos, séries e imaginação.</p>
-  </section>
+h1, h2, h3 {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
 
-  <!-- SOBRE -->
-  <section id="sobre" class="container reveal">
-    <div class="sobre-header">
-      <div class="sobre-avatar">
-        <span>🎨</span>
-        <!-- ou <img src="img/avatar-mary.png" alt="Mary Jann"> -->
-      </div>
-    </div>
-    <div class="sobre-texto">
-      <p>Mary Jann é ilustradora com traço realista focado em personagens do mundo dos games, animações e séries. Cada obra carrega personalidade e um cuidado especial com expressões e atmosferas. Aberta a experimentações, também explora a sensualidade artística em projetos NSFW, sempre com sensibilidade e estilo próprio.</p>
-      <p>Seu objetivo é transformar referências da cultura pop em arte autoral, criando pontes entre o real e o fantástico.</p>
-    </div>
-  </section>
+a {
+  text-decoration: none;
+  color: var(--azul-petroleo);
+  transition: color 0.3s;
+}
 
-  <!-- GALERIA COM ABAS TEMÁTICAS -->
-  <section id="galeria" class="container reveal">
-    <h2 class="section-title draw-underline">Galeria</h2>
-    <div class="tabs" id="tabs">
-      <button class="tab-btn active" data-categoria="todos">Todos</button>
-      <button class="tab-btn" data-categoria="gore">🩸 Gore / Bizarro</button>
-      <button class="tab-btn" data-categoria="realista">🖋️ Realista</button>
-      <button class="tab-btn" data-categoria="nsfw">🔞 NSFW</button>
-      <button class="tab-btn" data-categoria="personagens">🎮 Personagens</button>
-    </div>
-    <div class="galeria-grid" id="galeriaGrid"></div>
-  </section>
+a:hover {
+  color: var(--rosa-principal);
+}
 
-  <!-- MODAL PARA AMPLIAR IMAGEM -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <button class="modal-fechar" id="modalFechar">&times;</button>
-      <img id="modalImg" src="" alt="Obra expandida">
-      <div class="modal-detalhes" id="modalDetalhes"></div>
-    </div>
-  </div>
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
 
-  <!-- SEÇÃO DE TERMOS DE COMISSÃO (estilo fofo) -->
-  <section id="comissoes" class="container reveal">
-    <h2 class="section-title draw-underline">Comissões</h2>
-    <div class="termos-box">
-      <div class="termo-col">
-        <h3>𖹭 Passos para sua comission perfeita</h3>
-        <ul>
-          <li>𖹭 Mandar referências (descrição ou imagens)</li>
-          <li>𖹭 Mostrar paletas de cores ou adicionais</li>
-          <li>𖹭 Informar como será o fundo (complexidade pode alterar preço)</li>
-          <li>𖹭 Descrição do personagem (personalidade, gostos, habilidades)</li>
-          <li>𖹭 Faço ilustrações gore, porém se for desconfortável, recusarei</li>
-          <li>𖹭 Pagamento: 50% antes, 50% na entrega</li>
-        </ul>
-      </div>
-      <div class="termo-col">
-        <h3>𖹭 Não Faço</h3>
-        <ul>
-          <li>𖹭 Furry</li>
-          <li>𖹭 Armadura</li>
-          <li>𖹭 Somente fundos</li>
-          <li>𖹭 Animais Realistas</li>
-          <li>𖹭 Mechas ou Robôs</li>
-          <li>𖹭 NSFW extremo (consultar)</li>
-          <li>𖹭 Desenhos no estilo realista total</li>
-        </ul>
-      </div>
-      <div class="termo-col">
-        <h3>𖹭 Importante</h3>
-        <ul>
-          <li>𖹭 Sou aluna de ensino médio, posso ter atrasos (avisarei)</li>
-          <li>𖹭 Prazo médio: 6 a 8 dias</li>
-          <li>𖹭 Para dúvidas, contate via Instagram ou Discord</li>
-          <li>𖹭 Banners: preço fixo R$45,00 (varia com complexidade)</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+/* ========== FUNDO ANIMADO (rabiscos flutuantes) ========== */
+.bg-rabiscos {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
 
-  <!-- CONTATO -->
-  <section id="contato" class="container reveal" style="text-align: center;">
-    <h2 class="section-title draw-underline">Contato</h2>
-    <div class="contato-links">
-      <a href="mailto:maryjann@email.com">📧 E-mail</a>
-      <a href="https://www.instagram.com/mahttsk_/" target="_blank">📷 Instagram</a>
-      <a href="https://twitter.com/404" target="_blank">🐦 Twitter</a>
-      <a href="https://discord.com/invite/751681325945323562" target="_blank">💬 Discord</a>
-    </div>
-  </section>
+.bg-rabiscos .rabisco {
+  position: absolute;
+  opacity: 0.15;
+  animation: flutuar linear infinite;
+  font-size: 2rem;
+  user-select: none;
+}
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Mary Jann — Todos os direitos reservados.</p>
-    <div class="coracao-secreto" id="coracaoSecreto">💗</div>
-    <p class="mensagem-secreta" id="mensagemSecreta">Esse cantinho é pra você, Mary. Com amor, ❤️</p>
-  </footer>
+@keyframes flutuar {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.15; }
+  90% { opacity: 0.15; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
 
-  <!-- BOLHA MASCOTE -->
-  <div class="bolha-mascote" id="bolhaMascote" style="background-image: url('img/bolha-face1.png'); background-size: cover;"></div>
-  <div class="bolha-fala" id="bolhaFala">Oi! Que bom te ver por aqui ✨</div>
+/* ========== HEADER ========== */
+header {
+  background-color: var(--branco);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px dotted var(--rosa-principal);
+}
 
-  <script src="script.js" defer></script>
-</body>
-</html>
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 5%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+}
+
+.logo span {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.8rem;
+  color: var(--rosa-principal);
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  font-weight: 600;
+  color: var(--texto);
+  position: relative;
+  font-size: 0.95rem;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--rosa-principal);
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ========== HERO ========== */
+.hero {
+  background: linear-gradient(135deg, #fef3f0 0%, #fce4e4 100%);
+  text-align: center;
+  padding: 3rem 1rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--rosa-principal);
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* efeito drawn no título */
+.draw-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 0;
+  height: 6px;
+  background: var(--rosa-principal);
+  border-radius: 3px;
+  transform: translateX(-50%);
+  animation: drawLine 1s ease forwards 0.5s;
+}
+
+@keyframes drawLine {
+  to { width: 120%; }
+}
+
+.hero .subtitle {
+  font-size: 1.1rem;
+  color: var(--marrom-suave);
+  font-weight: 300;
+  max-width: 500px;
+  margin: 1.5rem auto 0;
+  padding: 0 0.5rem;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* bolinhas cartoon no fundo */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, var(--rosa-claro) 10%, transparent 10%);
+  background-size: 30px 30px;
+  opacity: 0.4;
+}
+
+/* ========== SEÇÕES GERAIS ========== */
+section {
+  padding: 2.5rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--azul-petroleo);
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+/* sublinhado animado estilo desenho */
+.draw-underline {
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+.draw-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: var(--rosa-principal);
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.draw-underline.revelado::after {
+  width: 100%;
+}
+
+/* ========== SOBRE ========== */
+.sobre-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.sobre-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--rosa-claro);
+  border: 5px solid var(--rosa-principal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--rosa-principal);
+  box-shadow: 0 10px 24px rgba(229, 152, 155, 0.3);
+  transition: transform 0.3s;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.sobre-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.sobre-texto {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+/* ========== ABAS DA GALERIA ========== */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
+  justify-content: center;
+}
+
+.tab-btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 40px;
+  border: 2px solid var(--rosa-principal);
+  background: white;
+  color: var(--texto);
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tab-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--rosa-principal);
+  transition: left 0.3s;
+  z-index: -1;
+}
+
+.tab-btn:hover::before,
+.tab-btn.active::before {
+  left: 0;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  color: white;
+  border-color: var(--rosa-principal);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(229,152,155,0.3);
+}
+
+/* ========== GALERIA ========== */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+}
+
+.card-obra {
+  background: var(--branco);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.card-obra:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  border-color: var(--rosa-principal);
+}
+
+.card-obra img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #fdeae8;
+}
+
+.card-info {
+  padding: 1rem;
+}
+
+.card-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.card-info p {
+  font-size: 0.85rem;
+  color: var(--marrom-suave);
+}
+
+/* cores das abas aplicadas à galeria */
+body.tema-gore .galeria-grid .card-obra:hover { border-color: var(--cor-gore); }
+body.tema-realista .galeria-grid .card-obra:hover { border-color: var(--cor-realista); }
+body.tema-nsfw .galeria-grid .card-obra:hover { border-color: var(--cor-nsfw); }
+body.tema-personagens .galeria-grid .card-obra:hover { border-color: var(--cor-personagens); }
+
+/* ========== MODAL ========== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal-content {
+  background: white;
+  max-width: 90vw;
+  width: 550px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: zoomIn 0.3s ease;
+}
+
+.modal-content img {
+  width: 100%;
+  display: block;
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 2rem;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  border: none;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.modal-detalhes {
+  padding: 1rem 1.2rem;
+}
+
+/* ========== SEÇÃO TERMOS (COMISSÕES) ========== */
+.termos-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.termo-col {
+  flex: 1 1 250px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 24px;
+  box-shadow: var(--sombra-suave);
+  border: 2px dashed var(--rosa-claro);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.termo-col:hover {
+  transform: translateY(-5px);
+  border-color: var(--rosa-principal);
+}
+
+.termo-col h3 {
+  color: var(--rosa-principal);
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.termo-col ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.termo-col li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.termo-col li::before {
+  content: '𖹭';
+  position: absolute;
+  left: 0;
+  color: var(--rosa-principal);
+}
+
+/* ========== CONTATO ========== */
+.contato-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.contato-links a {
+  background: var(--rosa-claro);
+  padding: 0.7rem 1.6rem;
+  border-radius: 40px;
+  font-weight: 600;
+  color: var(--texto);
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.contato-links a:hover {
+  background: var(--rosa-principal);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--azul-petroleo);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+.coracao-secreto {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.coracao-secreto:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.mensagem-secreta {
+  display: none;
+  margin-top: 0.8rem;
+  font-family: 'Fredoka One', cursive;
+  color: var(--rosa-claro);
+}
+
+/* ========== BOLHA MASCOTE ========== */
+.bolha-mascote {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  width: 75px; height: 75px;
+  background: var(--rosa-principal);
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(229,152,155,0.5);
+  cursor: pointer;
+  z-index: 150;
+  transition: transform 0.2s;
+  animation: balancar 2s infinite;
+}
+
+@keyframes balancar {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+.bolha-mascote:hover {
+  animation: none;
+  transform: scale(1.1);
+}
+
+.bolha-fala {
+  position: fixed;
+  bottom: 110px; right: 20px;
+  background: white;
+  border-radius: 20px;
+  padding: 0.7rem 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  max-width: 170px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: none;
+  z-index: 151;
+}
+
+.bolha-fala::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; right: 30px;
+  width: 0; height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+
+/* ========== ANIMAÇÕES REVEL ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.revelado {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ========== RESPONSIVO PARA CELULARES ========== */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  nav ul {
+    gap: 0.8rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .sobre-avatar {
+    width: 150px;
+    height: 150px;
+    font-size: 3.5rem;
+    border-width: 4px;
+  }
+
+  .sobre-texto {
+    font-size: 0.95rem;
+  }
+
+  .tabs {
+    gap: 0.4rem;
+  }
+
+  .tab-btn {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .card-obra img {
+    height: 180px;
+  }
+
+  .termo-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .contato-links a {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  .bolha-mascote {
+    width: 65px;
+    height: 65px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .bolha-fala {
+    bottom: 95px;
+    right: 15px;
+    max-width: 150px;
+    font-size: 0.8rem;
+  }
+
+  .modal-content {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .sobre-avatar {
+    width: 130px;
+    height: 130px;
+  }
+
+  .tab-btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
