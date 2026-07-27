@@ -7,21 +7,21 @@
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Fundo animado com rabiscos flutuantes -->
-  <div class="bg-rabiscos" id="bgRabiscos"></div>
+  <!-- CRT Overlay + Scanlines -->
+  <div class="crt-overlay"></div>
+  <div class="scanlines"></div>
+  <div class="cyber-grid"></div>
 
   <!-- HEADER -->
   <header>
     <div class="header-content">
       <div class="logo">
-        <img src="img/avatar-mary.png" alt="Mary Jann" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <span>Mary Jann</span>
+        <img src="img/logo-maryjann.png" alt="Mary Jann" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span class="logo-text glitch" data-text="Mary Jann">Mary Jann</span>
       </div>
       <nav>
         <ul>
@@ -36,39 +36,68 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1 class="draw-title">Mary Jann</h1>
-    <p class="subtitle">Traços realistas com alma de personagens — um universo entre jogos, séries e imaginação.</p>
+    <div class="hero-left">
+      <h1 class="glitch" data-text="Mary Jann">Mary Jann</h1>
+      <div class="gato-container">
+        <pre class="gato-ascii">
+⣼⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢻⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠸⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣶⣦⣀⡀⠀⠀⠀⠀
+⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠿⠟⠛⠛⠿⣷⣄⠀⠀
+⠀⢠⣿⣿⣿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⣠⣿⡿⠟⠀⠀⠀⠀⠀⠀⠘⢿⡄⠀
+⠀⠰⣿⣿⠃⠀⠀⠘⣿⣿⣿⣿⣿⠿⢿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⣼⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⠀
+⠀⢸⣿⣿⣄⠀⢀⣰⣿⣿⣿⣿⣏⣀⣀⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⣰⣿⠁⠀⠀⠀⠀⢀⣀⣀⣀⡀⠀⠀⣿⡇
+⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⢠⣿⣏⠀⠀⠀⠀⠀⣿⠟⠛⣿⡇⠀⢀⣿⠃
+⠀⠀⠀⠈⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⢸⣏⠀⠰⠟⠁⠀⣼⡿⠀
+⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⠋⠉⠉⠁⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡀⠀⠀⠀⠘⢿⣄⣀⣀⣠⣾⡿⠁⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣷⠀⠀⠀⠀⠀⠉⠛⠻⠿⠏⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣦⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣷⡄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⡇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡇⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⡟⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠇⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⢀⣼⣿⡿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣷⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣤⣤⣴⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        </pre>
+      </div>
+      <div class="estrela-girando">✦</div>
+    </div>
+    <div class="hero-right">
+      <p>
+        Artista há 13 anos, começando a focar no digital. Meu estilo é semi-realista ou até cartoon. Sou aluna do terceiro ano do ensino médio e jogo e desenho no tempo que tenho >:) (ainda estou aprendendo a desenhar no digital e aprendendo técnicas de melhorar).
+      </p>
+    </div>
   </section>
 
   <!-- SOBRE -->
   <section id="sobre" class="container reveal">
+    <h2 class="section-title"><span class="bracket">[</span> SOBRE <span class="bracket">]</span></h2>
     <div class="sobre-header">
-      <div class="sobre-avatar">
-        <!-- Avatar cartoon ou foto real da Mary Jann -->
-        <span>🎨</span>
         <!-- ou <img src="img/avatar-mary.png" alt="Mary Jann"> -->
       </div>
     </div>
-    <div class="sobre-texto">
-      <p>Mary Jann é ilustradora com traço realista focado em personagens do mundo dos games, animações e séries. Cada obra carrega personalidade e um cuidado especial com expressões e atmosferas. Aberta a experimentações, também explora a sensualidade artística em projetos NSFW, sempre com sensibilidade e estilo próprio.</p>
-      <p>Seu objetivo é transformar referências da cultura pop em arte autoral, criando pontes entre o real e o fantástico.</p>
+    <div class="terminal-box">
+      <p><span class="prompt">> </span>Mary Jann é ilustradora com 13 anos de experiência artística, atualmente mergulhando no universo digital. Seu traço navega entre o semi-realista e o cartoon, sempre carregado de personalidade.</p>
+      <p><span class="prompt">> </span>Aluna do terceiro ano do ensino médio, divide seu tempo entre os estudos, jogos e a paixão por desenhar. Está em constante aprendizado, explorando novas técnicas e aprimorando sua arte digital a cada dia.</p>
+      <p><span class="prompt">> </span>Objetivo: transformar referências da cultura pop em arte autoral, criando pontes entre o real e o fantástico.</p>
     </div>
   </section>
 
-  <!-- GALERIA COM ABAS TEMÁTICAS -->
+  <!-- GALERIA -->
   <section id="galeria" class="container reveal">
-    <h2 class="section-title draw-underline">Galeria</h2>
-    <div class="tabs" id="tabs">
-      <button class="tab-btn active" data-categoria="todos">Todos</button>
-      <button class="tab-btn" data-categoria="gore">🩸 Gore / Bizarro</button>
-      <button class="tab-btn" data-categoria="realista">🖋️ Realista</button>
-      <button class="tab-btn" data-categoria="nsfw">🔞 NSFW</button>
-      <button class="tab-btn" data-categoria="personagens">🎮 Personagens</button>
-    </div>
+    <h2 class="section-title"><span class="bracket">[</span> GALERIA <span class="bracket">]</span></h2>
     <div class="galeria-grid" id="galeriaGrid"></div>
   </section>
 
-  <!-- MODAL PARA AMPLIAR IMAGEM -->
+  <!-- MODAL -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <button class="modal-fechar" id="modalFechar">&times;</button>
@@ -77,40 +106,52 @@
     </div>
   </div>
 
-  <!-- SEÇÃO DE TERMOS DE COMISSÃO -->
+  <!-- COMISSÕES -->
   <section id="comissoes" class="container reveal">
-    <h2 class="section-title draw-underline">Comissões</h2>
+    <h2 class="section-title"><span class="bracket">[</span> COMISSÕES <span class="bracket">]</span></h2>
     <div class="termos-box">
       <div class="termo-col">
-        <h3>𖹭 Passos para sua comission perfeita</h3>
+        <h3>𖹭 Passos para sua comissão</h3>
         <ul>
-          <li>𖹭 Mandar referências (descrição ou imagens)</li>
-          <li>𖹭 Mostrar paletas de cores ou adicionais</li>
-          <li>𖹭 Informar como será o fundo (complexidade pode alterar preço)</li>
-          <li>𖹭 Descrição do personagem (personalidade, gostos, habilidades)</li>
-          <li>𖹭 Faço ilustrações gore, porém se for desconfortável, recusarei</li>
-          <li>𖹭 Pagamento: 50% antes, 50% na entrega</li>
+          <li>Mandar referências (descreva o que você deseja de forma clara)</li>
+          <li>Dependendo da simplicidade ou complexidade, o valor pode ser alterado</li>
+          <li>Alterações durante a arte são permitidas quantas vezes quiser</li>
+          <li>Você vai acompanhar o processo da arte :3</li>
         </ul>
       </div>
       <div class="termo-col">
         <h3>𖹭 Não Faço</h3>
         <ul>
-          <li>𖹭 Furry</li>
-          <li>𖹭 Armadura</li>
-          <li>𖹭 Somente fundos</li>
-          <li>𖹭 Animais Realistas</li>
-          <li>𖹭 Mechas ou Robôs</li>
-          <li>𖹭 NSFW extremo (consultar)</li>
-          <li>𖹭 Desenhos no estilo realista total</li>
+          <li>Armadura</li>
+          <li>Mecha (Robôs)</li>
+          <li>Nsfw pesado</li>
+          <li>Gore pesado</li>
+          <li>Animais Realista</li>
+          <li>Cenários complexos</li>
+          <li>Desenhos no estilo realista total</li>
+        </ul>
+      </div>
+      <div class="termo-col">
+        <h3>𖹭 Faço</h3>
+        <ul>
+          <li>Oc's</li>
+          <li>Yumeships</li>
+          <li>Arte para RPG</li>
+          <li>Animais</li>
+          <li>Furry</li>
+          <li>Cenário simples</li>
+          <li>NSFW leve</li>
+          <li>Gore leve</li>
         </ul>
       </div>
       <div class="termo-col">
         <h3>𖹭 Importante</h3>
         <ul>
-          <li>𖹭 Sou aluna de ensino médio, posso ter atrasos (avisarei)</li>
-          <li>𖹭 Prazo médio: 6 a 8 dias</li>
-          <li>𖹭 Para dúvidas, contate via Instagram ou Discord</li>
-          <li>𖹭 Banners: preço fixo R$45,00 (varia com complexidade)</li>
+          <li>Aluna do terceiro ano, então poderá haver atrasos (caso tenha imprevistos, você será avisado)</li>
+          <li>Prazo médio de 1 semana</li>
+          <li>Para dúvidas, fale pelo meu Instagram ou Discord</li>
+          <li>Personagem extra ou animais: R$5,00 de acréscimo</li>
+          <li>Pagamento via Pix: 50% antes, 50% na entrega</li>
         </ul>
       </div>
     </div>
@@ -118,25 +159,21 @@
 
   <!-- CONTATO -->
   <section id="contato" class="container reveal" style="text-align: center;">
-    <h2 class="section-title draw-underline">Contato</h2>
+    <h2 class="section-title"><span class="bracket">[</span> CONTATO <span class="bracket">]</span></h2>
     <div class="contato-links">
       <a href="mailto:maryjann@email.com">📧 E-mail</a>
-      <a href="https://www.instagram.com/mahttsk_/" target="_blank">📷 Instagram</a>
-      <a href="https://twitter.com/erro/404" target="_blank">🐦 Twitter</a>
-      <a href="https://discord.gg/yourinvite" target="_blank">💬 Discord</a>
+      <a href="https://instagram.com" target="_blank">📷 Instagram</a>
+      <a href="https://twitter.com" target="_blank">🐦 Twitter</a>
+      <a href="#">💬 Discord</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <p>© 2026 Mary Jann — Todos os direitos reservados.</p>
-    <div class="coracao-secreto" id="coracaoSecreto">💗</div>
+    <div class="easter-egg" id="easterEgg">✦</div>
     <p class="mensagem-secreta" id="mensagemSecreta">Esse cantinho é pra você, Mary. Com amor, ❤️</p>
   </footer>
-
-  <!-- BOLHA MASCOTE -->
-  <div class="bolha-mascote" id="bolhaMascote" style="background-image: url('img/bolha-face1.png'); background-size: cover;"></div>
-  <div class="bolha-fala" id="bolhaFala">Oi! Que bom te ver por aqui ✨</div>
 
   <script src="script.js" defer></script>
 </body>
